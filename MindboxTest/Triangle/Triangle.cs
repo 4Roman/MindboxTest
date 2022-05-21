@@ -2,8 +2,11 @@
 //Дополнительно к работоспособности оценим:
 //Юнит-тесты
 //Легкость добавления других фигур
-//Вычисление площади фигуры без знания типа фигуры в compile-time
 //Проверку на то, является ли треугольник прямоугольным
+//
+//
+//Вычисление площади фигуры без знания типа фигуры в compile-time
+
 
 namespace Geometry.Triangle
 {
@@ -39,6 +42,18 @@ namespace Geometry.Triangle
             double p = (_a + _b + _c) / 2;
             double S = Math.Sqrt(p*(p-_a)*(p-_b)*(p-_c));
             return S;
+        }
+        public bool CheckForSquareness()
+        {
+            if (EqualTo(_b * _b, _a * _a + _c * _c) || EqualTo(_c * _c, _b * _b + _a * _a) || EqualTo(_a * _a, _b * _b + _c * _c))
+            {
+                return true;
+            }
+            else return false;
+        }
+        private static bool EqualTo(double value1, double value2)
+        {
+            return Math.Abs(value1 - value2) < 0.001;
         }
     }
 }

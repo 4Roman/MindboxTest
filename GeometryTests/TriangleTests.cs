@@ -40,5 +40,35 @@ namespace GeometryTests
                 var result = triangle.CalcSquare();
             });
         }
+
+        [Test]
+        public void CheckForSquareness_Triangle_1_2_3_ShouldReturnFalse()
+        {
+
+            // Arrange
+            var triangle = Triangle.CreateInstance(2, 3, 4);
+
+            // Act
+            var result = triangle.CheckForSquareness();
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void CheckForSquareness_Triangle_3_4_5_ShouldReturnTrue()
+        {
+
+            // Arrange
+            var triangle = Triangle.CreateInstance(3, 4, 5);
+
+            // Act
+            var result = triangle.CheckForSquareness();
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+
     }
 }
