@@ -1,52 +1,66 @@
 ﻿using Geometry;
 using Geometry.Triangle;
 using NUnit.Framework;
+using System;
 
 namespace GeometryTests
 {
     [TestFixture]
     public class TriangleTests
     {
-        [Test]
-        public void CalcSquare_Triangle_1_1_1_ShouldReturn_0_433()
+        [TestCase(1.0, 1.0, 1.0, 0.433)]
+        [TestCase(5.0, 3.0, 4.0, 6.0)]
+        [TestCase(7.0, 8.0, 5.0, 17.321)]
+        [TestCase(2.0, 1.0, 1.5, 0.726)]
+        public void CalcSquare_Triangle_1_1_1_ShouldReturn_0_433(double a, double b, double c, double d)
         {
             // Arrange
-            var triangle = Triangle.CreateInstance(1, 1, 1);
+            var triangle = Triangle.CreateInstance(a, b, c);
 
             // Act
             var result = triangle.CalcSquare();
 
             // Assert
-            Assert.AreEqual(0.433, result, 0.001);
+            Assert.AreEqual(d, result, 0.001);
         }
 
-        [Test]
-        public void CalcSquare_Triangle_0_1_1_ShouldThrowException()
+        [TestCase(-1.0, 1.0, 1.0)]
+        [TestCase(1.0, -1.0, 1.0)]
+        [TestCase(1.0, 1.0, -1.0)]
+        [TestCase(0.0, 0.0, 0.0)]
+        public void CalcSquare_Triangle_ShouldThrowAllSidesMustBeMoreThenZeroException(double a, double b, double c)
         {
             // Assert
             Assert.Throws<Geometry.Triangle.IllegalTriangleAllSidesMustBeMoreThenZeroException>(() =>
             {
-                var triangle = Triangle.CreateInstance(0, 1, 1);
+                var triangle = Triangle.CreateInstance(a, b, c);
                 var result = triangle.CalcSquare();
             });
         }
-        [Test]
-        public void CalcSquare_Triangle_1_2_3_ShouldThrowException()
+
+        [TestCase(1.0, 1.0, 2.0)]
+        [TestCase(3.0, 5.0, 1.0)]
+        [TestCase(11.0, 0.5, 10.0)]
+        [TestCase(7.0, 4.0, 2.0)]
+        public void CalcSquare_Triangle_ShouldThrowOneSideMustBeLessThenSumOfOtherSidesException(double a, double b, double c)
         {            
             // Assert
             Assert.Throws<Geometry.Triangle.IllegalTriangleOneSideMustBeLessThenSumOfOtherSidesException>(() =>
             {
-                var triangle = Triangle.CreateInstance(1, 2, 3);
+                var triangle = Triangle.CreateInstance(a, b, c);
                 var result = triangle.CalcSquare();
             });
         }
 
-        [Test]
-        public void CheckForSquareness_Triangle_1_2_3_ShouldReturnFalse()
+        [TestCase(3.0, 4.0, 2.0)]
+        [TestCase(3.0, 5.0, 4.5)]
+        [TestCase(10.0, 1.0, 10.0)]
+        [TestCase(7.0, 4.0, 5.0)]
+        public void CheckForSquareness_Triangle_ShouldReturnFalse(double a, double b, double c)
         {
 
             // Arrange
-            var triangle = Triangle.CreateInstance(2, 3, 4);
+            var triangle = Triangle.CreateInstance(a, b, c);
 
             // Act
             var result = triangle.CheckForSquareness();
@@ -55,12 +69,15 @@ namespace GeometryTests
             Assert.IsFalse(result);
         }
 
-        [Test]
-        public void CheckForSquareness_Triangle_3_4_5_ShouldReturnTrue()
+        [TestCase(3.0, 4.0, 5.0)]
+        [TestCase(1.0, 2.0, 2.236)]
+        [TestCase(3.0, 2.0, 3.60555127)]
+        [TestCase(5.0, 7.0, 8.60232526)]
+        public void CheckForSquareness_Triangle_ShouldReturnTrue(double a, double b, double c)
         {
 
             // Arrange
-            var triangle = Triangle.CreateInstance(3, 4, 5);
+            var triangle = Triangle.CreateInstance(a, b, c);
 
             // Act
             var result = triangle.CheckForSquareness();
@@ -68,7 +85,5 @@ namespace GeometryTests
             // Assert
             Assert.IsTrue(result);
         }
-
-
     }
 }
