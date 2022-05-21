@@ -17,14 +17,17 @@ namespace Geometry.Circle
 
         public static Circle CreateInstance(double r)
         {
-            // TODO: proverkki
-
+            if (r < 0)
+            {
+                throw new IllegalCircleRadiusMustNotBeLessThanZeroException("Radius cannot be less than zero.",null,r);
+            }
             return new Circle(r);
         }
 
         public double CalcSquare()
         {
-            throw new NotImplementedException();
+            double S = Math.PI * _r*_r;
+            return S;
         }
     }
 }

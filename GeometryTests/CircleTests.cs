@@ -43,7 +43,7 @@ namespace GeometryTests
             var result = circle.CalcSquare();
 
             // Assert
-            Assert.AreEqual(9*Math.PI, result, 0.001);
+            Assert.AreEqual(9.0*Math.PI, result, 0.001);
         }
 
         [Test]
