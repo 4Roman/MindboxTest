@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Geometry.Circle
 {
-    public class IllegalCircleRadiusMustNotBeLessThanZeroException : Exception
+    public class IllegalCircleRadiusMustNotBeLessThanOrEqualToZeroException : Exception
     {
-        public IllegalCircleRadiusMustNotBeLessThanZeroException(string message, Exception? innerException, double radius) : base(message, innerException)
+        public IllegalCircleRadiusMustNotBeLessThanOrEqualToZeroException(string message, Exception? innerException, double radius) : base(message, innerException)
         {
             Radius = radius;
         }

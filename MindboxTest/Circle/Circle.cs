@@ -17,9 +17,9 @@ namespace Geometry.Circle
 
         public static Circle CreateInstance(double r)
         {
-            if (r < 0)
+            if (r <=0)
             {
-                throw new IllegalCircleRadiusMustNotBeLessThanZeroException("Radius cannot be less than zero.",null,r);
+                throw new IllegalCircleRadiusMustNotBeLessThanOrEqualToZeroException("Radius cannot be less or  zero.",null,r);
             }
             return new Circle(r);
         }

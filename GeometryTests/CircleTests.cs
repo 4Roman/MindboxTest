@@ -24,14 +24,15 @@ namespace GeometryTests
             Assert.AreEqual(S, result, 0.001);
         }
 
+        [TestCase(0.0)]
         [TestCase(-1.0)]
         [TestCase(-0.2)]
         [TestCase(-6.2)]
-        [TestCase(-12.0)]
-        public void CalcSquare_Circle_minus_1_ShouldReturn_IllegalCircleRadiusMustNotBeLessThanZeroException(double r)
+        [TestCase(-12.0)]        
+        public void CalcSquare_Circle_IllegalCircleRadiusMustNotBeLessThanOrEqualToZeroException(double r)
         {
             // Assert
-            Assert.Throws<Geometry.Circle.IllegalCircleRadiusMustNotBeLessThanZeroException>(() =>
+            Assert.Throws<Geometry.Circle.IllegalCircleRadiusMustNotBeLessThanOrEqualToZeroException>(() =>
             {
                 var triangle = Circle.CreateInstance(r);
                 var result = triangle.CalcSquare();
