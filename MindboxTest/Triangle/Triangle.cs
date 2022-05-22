@@ -15,6 +15,19 @@ namespace Geometry.Triangle
             this._c = c;
         }
 
+        /// <summary>
+        /// Creates an object of class Triangle.
+        /// </summary>
+        /// <returns>
+        /// Object of class Triangle.
+        /// </returns>
+        /// <exception cref="Geometry.Triangle.IllegalTriangleOneSideMustBeLessThenSumOfOtherSidesException">
+        /// Thrown when one parameter is equal to or greater than the sum of the other two.
+        /// </exception>
+        /// <exception cref="Geometry.Triangle.IllegalTriangleAllSidesMustBeMoreThenZeroException">
+        /// Thrown when one parameter is equal to or less than zero.
+        /// is greater than 0.
+        /// </exception> 
         public static Triangle CreateInstance(double a, double b, double c)
         {
             // TODO: проверка больше 0
@@ -29,12 +42,26 @@ namespace Geometry.Triangle
             else return new Triangle(a, b, c);
         }
 
+
+        /// <summary>
+        /// Сalculates the area of a Triangle
+        /// </summary>
+        /// <returns>
+        /// Area of a Triangle
+        /// </returns>     
         public double CalcSquare()
         {               
             double p = (_a + _b + _c) / 2;
             double S = Math.Sqrt(p*(p-_a)*(p-_b)*(p-_c));
             return S;
         }
+
+        /// <summary>
+        /// Checks if a triangle is right
+        /// </summary>
+        /// <returns>
+        /// True, if triangle is right; False, if not
+        /// </returns>   
         public bool IsRightTriangle()
         {
             if (EqualTo(_b * _b, _a * _a + _c * _c) || EqualTo(_c * _c, _b * _b + _a * _a) || EqualTo(_a * _a, _b * _b + _c * _c))
