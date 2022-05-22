@@ -29,7 +29,7 @@ namespace GeometryTests
         [TestCase(-0.2)]
         [TestCase(-6.2)]
         [TestCase(-12.0)]        
-        public void CalcSquare_Circle_IllegalCircleRadiusMustNotBeLessThanOrEqualToZeroException(double r)
+        public void CalcSquare_Circle_ShouldThrow_IllegalCircleRadiusMustNotBeLessThanOrEqualToZeroException(double r)
         {
             // Assert
             Assert.Throws<Geometry.Circle.IllegalCircleRadiusMustNotBeLessThanOrEqualToZeroException>(() =>
