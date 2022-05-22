@@ -1,17 +1,9 @@
-﻿//Напишите на C# библиотеку для поставки внешним клиентам, которая умеет вычислять площадь круга по радиусу и треугольника по трем сторонам.
-//Дополнительно к работоспособности оценим:
-//Юнит-тесты
-//Легкость добавления других фигур
-//Проверку на то, является ли треугольник прямоугольным
-//
-//
-//Вычисление площади фигуры без знания типа фигуры в compile-time
-
-
+﻿using static Geometry.Calculations;
 namespace Geometry.Triangle
 {
     public class Triangle : IGeometricFigure
     {
+        
         private readonly double _a;
         private readonly double _b;
         private readonly double _c;
@@ -51,9 +43,6 @@ namespace Geometry.Triangle
             }
             else return false;
         }
-        private static bool EqualTo(double value1, double value2)
-        {
-            return Math.Abs(value1 - value2) < 0.001;
-        }
+        
     }
 }

@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Geometry.Circle;
 using System;
+using static Geometry.Calculations;
 
 namespace GeometryTests
 {
@@ -20,7 +21,7 @@ namespace GeometryTests
             var result = circle.CalcSquare();
 
             // Assert
-            Assert.AreEqual(S, result, 0.001);
+            Assert.AreEqual(S, result, EpsilonD);
         }
 
         [TestCase(0.0)]

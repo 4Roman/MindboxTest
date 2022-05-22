@@ -2,6 +2,7 @@
 using Geometry.Triangle;
 using NUnit.Framework;
 using System;
+using static Geometry.Calculations;
 
 namespace GeometryTests
 {
@@ -21,7 +22,7 @@ namespace GeometryTests
             var result = triangle.CalcSquare();
 
             // Assert
-            Assert.AreEqual(d, result, 0.001);
+            Assert.AreEqual(d, result, EpsilonD);
         }
 
         [TestCase(-1.0, 1.0, 1.0)]
