@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Geometry.Triangle
 {
-    public class IllegalTriangleAllSidesMustBeMoreThenZeroException : Exception
+    public class IllegalTriangleAllSidesMustBeMoreThenZeroException : IllegalTriangleBaseException
     {
         public IllegalTriangleAllSidesMustBeMoreThenZeroException(string message, Exception? innerException, double sideA, double sideB, double sideC) : base(message, innerException)
         {
@@ -14,10 +14,6 @@ namespace Geometry.Triangle
             SideB = sideB;
             SideC = sideC;
         }
-
-        public double SideA { get; }
-        public double SideB { get; }
-        public double SideC { get; }
     
     }
 }

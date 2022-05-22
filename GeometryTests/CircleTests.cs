@@ -7,7 +7,6 @@ namespace GeometryTests
     [TestFixture]
     public class CircleTests
     {
-        [TestCase(0.0,0.0)]
         [TestCase(1.0,Math.PI)]
         [TestCase(0.5,0.25*Math.PI)]
         [TestCase(10.0,100*Math.PI)]
