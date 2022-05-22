@@ -35,7 +35,7 @@ namespace Geometry.Triangle
             double S = Math.Sqrt(p*(p-_a)*(p-_b)*(p-_c));
             return S;
         }
-        public bool CheckForSquareness()
+        public bool IsRightTriangle()
         {
             if (EqualTo(_b * _b, _a * _a + _c * _c) || EqualTo(_c * _c, _b * _b + _a * _a) || EqualTo(_a * _a, _b * _b + _c * _c))
             {

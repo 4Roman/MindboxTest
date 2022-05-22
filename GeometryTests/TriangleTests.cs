@@ -57,14 +57,14 @@ namespace GeometryTests
         [TestCase(3.0, 5.0, 4.5)]
         [TestCase(10.0, 1.0, 10.0)]
         [TestCase(7.0, 4.0, 5.0)]
-        public void CheckForSquareness_Triangle_ShouldReturnFalse(double a, double b, double c)
+        public void IsRightTriangle_ShouldReturnFalse(double a, double b, double c)
         {
 
             // Arrange
             var triangle = Triangle.CreateInstance(a, b, c);
 
             // Act
-            var result = triangle.CheckForSquareness();
+            var result = triangle.IsRightTriangle();
 
             // Assert
             Assert.IsFalse(result);
@@ -74,14 +74,14 @@ namespace GeometryTests
         [TestCase(1.0, 2.0, 2.236)]
         [TestCase(3.0, 2.0, 3.60555127)]
         [TestCase(5.0, 7.0, 8.60232526)]
-        public void CheckForSquareness_Triangle_ShouldReturnTrue(double a, double b, double c)
+        public void IsRightTriangle_ShouldReturnTrue(double a, double b, double c)
         {
 
             // Arrange
             var triangle = Triangle.CreateInstance(a, b, c);
 
             // Act
-            var result = triangle.CheckForSquareness();
+            var result = triangle.IsRightTriangle();
 
             // Assert
             Assert.IsTrue(result);
