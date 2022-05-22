@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Geometry.Triangle
 {
-    public abstract class IllegalTriangleBaseException : Exception
+    public abstract class IllegalTriangleBaseException : IllegalGeometricFigureException
     {
-        public IllegalTriangleBaseException(string? message, Exception? innerException)
+        public IllegalTriangleBaseException(string? message, Exception? innerException) : base(message, innerException)
         {
         }
         public double SideA { get; set; }
