@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Geometry.Triangle
+namespace Geometry
 {
     public abstract class IllegalGeometricFigureException : Exception
     {
